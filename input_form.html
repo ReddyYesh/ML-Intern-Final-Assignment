@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+</head>
+<body>
+    <h2>Customer Churn Prediction</h2>
+    <form action="/predict" method="POST">
+        <label for="Gender">Gender:</label><br>
+        <input type="radio" id="Male" name="Gender" value="Male">
+        <label for="Male">Male</label><br>
+        <input type="radio" id="Female" name="Gender" value="Female">
+        <label for="Female">Female</label><br><br>
+
+        <label for="Age">Age:</label><br>
+        <input type="text" id="Age" name="Age"><br><br>
+
+        <label for="Tenure">Tenure:</label><br>
+        <input type="text" id="Tenure" name="Tenure"><br><br>
+
+        <label for="MonthlyCharges">Monthly Charges:</label><br>
+        <input type="text" id="MonthlyCharges" name="MonthlyCharges"><br><br>
+
+        <label for="TotalCharges">Total Charges:</label><br>
+        <input type="text" id="TotalCharges" name="TotalCharges"><br><br>
+
+        <label for="PaymentMethod">Payment Method:</label><br>
+        <input type="radio" id="CreditCard" name="PaymentMethod" value="Credit Card">
+        <label for="CreditCard">Credit Card</label><br>
+        <input type="radio" id="BankTransfer" name="PaymentMethod" value="Bank Transfer">
+        <label for="BankTransfer">Bank Transfer</label><br>
+        <input type="radio" id="Cash" name="PaymentMethod" value="Cash">
+        <label for="Cash">Cash</label><br>
+        <input type="radio" id="PayPal" name="PaymentMethod" value="PayPal">
+        <label for="PayPal">PayPal</label><br><br>
+
+        <label for="ServiceUsage1">Service Usage 1:</label><br>
+        <input type="text" id="ServiceUsage1" name="ServiceUsage1"><br><br>
+
+        <label for="ServiceUsage2">Service Usage 2:</label><br>
+        <input type="text" id="ServiceUsage2" name="ServiceUsage2"><br><br>
+
+        <label for="ServiceUsage3">Service Usage 3:</label><br>
+        <input type="text" id="ServiceUsage3" name="ServiceUsage3"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if churn_probability is not none %}
+        <h3>Churn Probability: {{ churn_probability }}</h3>
+    {% endif %}
+
+    {% if error %}
+        <h3>Error: {{ error }}</h3>
+    {% endif %}
+</body>
+</html>
